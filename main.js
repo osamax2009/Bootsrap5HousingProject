@@ -1,46 +1,20 @@
-const person = {
-  firstname: "ali",
-  lastname: "mohammed",
-  age: 30,
-  address: {
-    streat: "50 main st",
-    city: "al-admaya",
-    state: "bg",
-  },
-  hobbies: ["sport", "movies", "movies"],
-};
+const sumofnumnbers = (num1, num2) => num1 + num2;
 
-console.log(
-  person.firstname,
-  person.lastname,
-  person.address.city,
-  person.hobbies
-);
+console.log(sumofnumnbers);
 
-const { firstname, lastname } = person;
+function Person(firstname, lastname, dob) {
+  this.firstname = firstname;
+  this.lastname = lastname;
+  this.dob = new Date(dob);
 
-console.log(firstname);
-
-const todos = [
-  {
-    id: 1,
-    task: "take out trash",
-    isCompleted: true,
-  },
-  {
-    id: 2,
-    task: "Meeting  with boss",
-    isCompleted: false,
-  },
-  {
-    id: 3,
-    task: "dentist appt",
-    isCompleted: true,
-  },
-];
-const todoJson = JSON.stringify(todos);
-console.log(todoJson);
-
-for (let i = 0; i <= todos.length - 1; i++) {
-  console.log(todos[i].task);
+  this.getBirthYear = function () {
+    return this.dob.getFullYear();
+  };
 }
+
+//instantiate object
+const person1 = new Person("Jone", "Doe", "10-10-2000");
+const person2 = new Person("noor", "moh", "10-10-2004");
+
+console.log(person1.getBirthYear());
+console.log(person2.getBirthYear());
